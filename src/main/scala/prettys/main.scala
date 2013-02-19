@@ -8,7 +8,7 @@ import org.rogach.scallop._
 import org.apache.commons.io.FileUtils
 import nebula._
 
-///////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////
 
 class Conf(args: Seq[String]) extends ScallopConf(args) {
   banner("PrettyS: A tool to reformat Scala source code to make it a bit prettier, according to my (Eric Christiansen's) completely arbitrary tastes.")
@@ -33,7 +33,7 @@ object Main {
     val args = new Conf(unparsedArgs)
     println(args.summary)
 
-    ///////////
+    ////////////////////////////////////////////////////////////////////////////
 
     val source = FileUtils.readFileToString(args.inputScala())
     val pretty = Prettifiers.cleanDividers(source)

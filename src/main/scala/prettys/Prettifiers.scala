@@ -8,7 +8,7 @@ import org.rogach.scallop._
 import org.apache.commons.io.FileUtils
 import nebula._
 
-///////////////
+////////////////////////////////////////////////////////////////////////////////
 
 object Prettifiers {
   def isDivider(line: String): Boolean = {
@@ -31,7 +31,7 @@ object Prettifiers {
       line
     }
 
-  /////////////////
+  //////////////////////////////////////////////////////////////////////////////
 
   /**
    * Considers every line consisting of only "/" characters (at least 10)
