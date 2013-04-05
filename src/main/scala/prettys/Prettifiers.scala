@@ -6,14 +6,14 @@ import javax.imageio.ImageIO
 import java.text.SimpleDateFormat
 import org.rogach.scallop._
 import org.apache.commons.io.FileUtils
-import nebula._
 
 ////////////////////////////////////////////////////////////////////////////////
 
 object Prettifiers {
   def isDivider(line: String): Boolean = {
     // A single line
-    asserty(!line.contains("\n"))
+//    asserty(!line.contains("\n"))
+    assert(!line.contains("\n"))
 
     val stripped = line.dropWhile(_ == ' ').reverse.dropWhile(_ == ' ').reverse
     val onlySlashes = stripped.count(_ == '/') == stripped.size

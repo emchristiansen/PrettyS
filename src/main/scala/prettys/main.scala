@@ -6,7 +6,7 @@ import javax.imageio.ImageIO
 import java.text.SimpleDateFormat
 import org.rogach.scallop._
 import org.apache.commons.io.FileUtils
-import nebula._
+//import nebula._
 
 ////////////////////////////////////////////////////////////////////////////////
 
@@ -16,7 +16,12 @@ class Conf(args: Seq[String]) extends ScallopConf(args) {
   val inputScala = opt[String](
     "inputScala",
     descr = "The Scala code you want made pretty.",
-    required = true) map ExistingFile.apply
+    required = true) map /*ExistingFile.apply*/ { path =>
+      val file = new File(path)
+      assert(file.isFile)
+      assert(file.exists)
+      file
+    }
 
   val outputScala = opt[String](
     "outputScala",
@@ -44,7 +49,7 @@ object Main {
     } else if (args.outputScala.isDefined) {
       args.outputScala()
     } else ???
-      
+
     FileUtils.writeStringToFile(outputFile, pretty)
   }
 }
